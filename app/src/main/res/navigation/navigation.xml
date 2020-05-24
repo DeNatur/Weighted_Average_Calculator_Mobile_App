@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.szymonstasik.kalkulatorsredniejwazonej.MenuFragment"
+        android:name="com.szymonstasik.kalkulatorsredniejwazonej.menu.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/calculatorFragment"
-        android:name="com.szymonstasik.kalkulatorsredniejwazonej.CalculatorFragment"
+        android:name="com.szymonstasik.kalkulatorsredniejwazonej.calculator.CalculatorFragment"
         android:label="fragment_calculator"
         tools:layout="@layout/fragment_calculator" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
-        android:name="com.szymonstasik.kalkulatorsredniejwazonej.ResultFragment"
+        android:name="com.szymonstasik.kalkulatorsredniejwazonej.calcuatorresult.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.szymonstasik.kalkulatorsredniejwazonej.HistoryFragment"
+        android:name="com.szymonstasik.kalkulatorsredniejwazonej.history.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
 </navigation>

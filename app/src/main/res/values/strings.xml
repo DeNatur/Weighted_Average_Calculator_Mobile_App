@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Kalkulator Sredniej Wazonej</string>
-
+    <string name="app_name">Weighted Average Calculator</string>
+    <string name="hello_blank_fragment">hello</string>
 </resources>
