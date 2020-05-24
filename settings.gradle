@@ -1,0 +1,2 @@
+rootProject.name='Kalkulator Sredniej Wazonej'
+include ':app'
