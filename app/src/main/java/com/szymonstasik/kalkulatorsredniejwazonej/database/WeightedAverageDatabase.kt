@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.szymonstasik.kalkulatorsredniejwazonej.utils.Converters
 
 
 /**
@@ -11,6 +13,7 @@ import androidx.room.RoomDatabase
  * And a global method to get access to the database.
  */
 @Database(entities = [WeightedAverage::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class WeightedAverageDatabase : RoomDatabase() {
 
     /**

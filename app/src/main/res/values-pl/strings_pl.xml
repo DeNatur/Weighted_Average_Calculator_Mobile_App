@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Kalkulator Średniej Ważonej</string>
     <string name="hello_blank_fragment">hello</string>
+    <string name="calculate">Oblicz</string>
+    <string name="history">Historia</string>
 
+    <string name="choose_note">Wybierz\nOcene</string>
+    <string name="choose_weight">Wybierz\nWagę</string>
 </resources>

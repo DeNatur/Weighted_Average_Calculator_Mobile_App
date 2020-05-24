@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Weighted Average Calculator</string>
     <string name="hello_blank_fragment">hello</string>
+    <string name="calculate">Calculate</string>
+    <string name="history">History</string>
+
+    <string name="choose_note">Choose\nNote</string>
+    <string name="choose_weight">Choose\nWeight</string>
 </resources>

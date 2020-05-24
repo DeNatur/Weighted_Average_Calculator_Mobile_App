@@ -13,5 +13,11 @@ data class WeightedAverage(
     val timeAddedMilli: Long = System.currentTimeMillis(),
 
     @ColumnInfo(name = "weighted_average_name")
-    var name: String = ""
+    var name: String = "",
+
+    @ColumnInfo(name = "notes")
+    var notes: List<Float>,
+
+    @ColumnInfo(name = "weights")
+    var weights: List<Float>
 )

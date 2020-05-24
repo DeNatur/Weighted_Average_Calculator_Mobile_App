@@ -12,10 +12,16 @@
         tools:layout="@layout/fragment_menu" >
         <action
             android:id="@+id/action_menuFragment_to_calculatorFragment"
-            app:destination="@id/calculatorFragment" />
+            app:destination="@id/calculatorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
         <action
             android:id="@+id/action_menuFragment_to_historyFragment"
-            app:destination="@id/historyFragment" />
+            app:destination="@id/historyFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_right" />
     </fragment>
     <fragment
         android:id="@+id/calculatorFragment"
@@ -25,6 +31,9 @@
         <action
             android:id="@+id/action_calculatorFragment_to_resultFragment"
             app:destination="@id/resultFragment" />
+        <argument
+            android:name="id"
+            app:argType="long" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
