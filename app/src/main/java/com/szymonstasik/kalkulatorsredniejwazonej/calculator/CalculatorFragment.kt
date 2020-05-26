@@ -6,9 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.szymonstasik.kalkulatorsredniejwazonej.R
 import com.szymonstasik.kalkulatorsredniejwazonej.database.WeightedAverageDatabase
+import com.szymonstasik.kalkulatorsredniejwazonej.databinding.FragmentCalculatorBinding
 import com.szymonstasik.kalkulatorsredniejwazonej.databinding.FragmentMenuBinding
 
 class CalculatorFragment : Fragment() {
@@ -16,7 +19,7 @@ class CalculatorFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
-        val binding: FragmentMenuBinding = DataBindingUtil.inflate(
+        val binding: FragmentCalculatorBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_calculator, container, false)
 
         val application = requireNotNull(this.activity).application
@@ -29,7 +32,35 @@ class CalculatorFragment : Fragment() {
 
         val calculatorViewModel = ViewModelProvider(this, viewModelFactory)[CalculatorViewModel::class.java]
 
-        
+        binding.calculatorViewModel = calculatorViewModel
+
+        binding.lifecycleOwner = this
+
+        val adapter = CalculatorAdapter(CalculatorAdapter.ChangeNoteListener{ position, noteValue ->
+                calculatorViewModel.changeValueOfNote(position, noteValue)
+            }, CalculatorAdapter.ChangeWeightListener{position, weightValue ->
+                calculatorViewModel.changeValueOfWeight(position, weightValue)
+            }
+        )
+
+
+        binding.notesAndWeightesRecycler.adapter = adapter
+
+
+        adapter.notifyDataSetChanged()
+        calculatorViewModel.weightedAverage.observe(viewLifecycleOwner, Observer {
+            if (it != null)
+                adapter.submitList(it.notes)
+        })
+
+        calculatorViewModel.navigateToResult.observe(viewLifecycleOwner, Observer {
+            if (it != null) {
+                findNavController().navigate(
+                    CalculatorFragmentDirections.actionCalculatorFragmentToResultFragment(
+                        it))
+                calculatorViewModel.doneNavigatingToResult()
+            }
+        })
 
         return binding.root
     }

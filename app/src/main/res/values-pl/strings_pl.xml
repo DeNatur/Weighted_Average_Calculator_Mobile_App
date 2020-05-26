@@ -6,4 +6,6 @@
 
     <string name="choose_note">Wybierz\nOcene</string>
     <string name="choose_weight">Wybierz\nWagę</string>
+    <string name="note_nr">Ocena nr %d</string>
+    <string name="add_note">Dodaj Ocenę</string>
 </resources>

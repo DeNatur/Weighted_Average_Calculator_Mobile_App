@@ -3,9 +3,11 @@ package com.szymonstasik.kalkulatorsredniejwazonej.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(tableName = "weighted_average_table")
 data class WeightedAverage(
+
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0L,
 
@@ -16,8 +18,11 @@ data class WeightedAverage(
     var name: String = "",
 
     @ColumnInfo(name = "notes")
-    var notes: List<Float>,
+    var notes: List<NoteNWeight>
+)
 
-    @ColumnInfo(name = "weights")
-    var weights: List<Float>
+data class NoteNWeight(
+    var id: UUID = UUID.randomUUID(),
+    var note: Int = 0,
+    var weight: Int = 1
 )

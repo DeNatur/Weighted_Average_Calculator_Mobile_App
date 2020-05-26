@@ -30,7 +30,11 @@
         tools:layout="@layout/fragment_calculator" >
         <action
             android:id="@+id/action_calculatorFragment_to_resultFragment"
-            app:destination="@id/resultFragment" />
+            app:destination="@id/resultFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
         <argument
             android:name="id"
             app:argType="long" />
@@ -45,7 +49,14 @@
             app:destination="@id/historyFragment" />
         <argument
             android:name="weightedAverageKey"
-            app:argType="float" />
+            app:argType="long" />
+        <action
+            android:id="@+id/action_resultFragment_to_calculatorFragment"
+            app:destination="@id/calculatorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_in_right" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"

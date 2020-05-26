@@ -6,4 +6,6 @@
 
     <string name="choose_note">Choose\nNote</string>
     <string name="choose_weight">Choose\nWeight</string>
+    <string name="note_nr">Note nr %d</string>
+    <string name="add_note">Add Note</string>
 </resources>

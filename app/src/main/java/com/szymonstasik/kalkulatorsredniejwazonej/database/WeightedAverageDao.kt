@@ -19,7 +19,7 @@ interface WeightedAverageDao {
      * @param weightedAverage new value to write
      */
     @Insert
-    fun insert(weightedAverage: WeightedAverage)
+    fun insert(weightedAverage: WeightedAverage): Long
 
     /**
      * When updating a row with a value already set in a column,
@@ -37,6 +37,9 @@ interface WeightedAverageDao {
      */
     @Query("SELECT * from weighted_average_table WHERE id = :key")
     fun get(key: Long): WeightedAverage?
+
+//    @Query("SELECT MAX(time_added_milli) from weighted_average_table")
+//    fun getLatest(): WeightedAverage?
 
     /**
      * Deletes all values from the table.
@@ -58,5 +61,5 @@ interface WeightedAverageDao {
      * Selects and returns the weighted average with given id.
      */
     @Query("SELECT * from weighted_average_table WHERE id = :key")
-    fun getWeightedAverageWithId(key: Long): WeightedAverage
+    fun getWeightedAverageWithId(key: Long): LiveData<List<WeightedAverage>>
 }

@@ -35,7 +35,7 @@ class MenuFragment : Fragment() {
 
         menuViewModel.navigateToCalculator.observe(viewLifecycleOwner, Observer {
             if (it != null){
-                findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToCalculatorFragment(it.id))
+                findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToCalculatorFragment(it))
                 menuViewModel.doneCalculatorNavigating()
             }
         })
