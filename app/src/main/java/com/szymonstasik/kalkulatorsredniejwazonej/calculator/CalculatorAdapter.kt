@@ -42,11 +42,13 @@ class CalculatorAdapter(val changeNoteListener: ChangeNoteListener,
             var noteAdapter = ArrayAdapter<String>(binding.root.context, R.layout.simple_dropdown_item_1line, Statics.NOTE_NUMBERS)
             noteAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.noteSpinner.adapter = noteAdapter
+            binding.noteSpinner.setSelection(item.note)
 
             //Setting adapter for Weight Spinner
             var weightAdapter = ArrayAdapter<String>(binding.root.context, R.layout.simple_dropdown_item_1line, Statics.NOTE_WEIGHTS)
             weightAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.weightSpinner.adapter = weightAdapter
+            binding.weightSpinner.setSelection(item.weight)
 
             binding.noteSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(parent: AdapterView<*>?) {}

@@ -46,8 +46,6 @@ class CalculatorFragment : Fragment() {
 
         binding.notesAndWeightesRecycler.adapter = adapter
 
-
-        adapter.notifyDataSetChanged()
         calculatorViewModel.weightedAverage.observe(viewLifecycleOwner, Observer {
             if (it != null)
                 adapter.submitList(it.notes)

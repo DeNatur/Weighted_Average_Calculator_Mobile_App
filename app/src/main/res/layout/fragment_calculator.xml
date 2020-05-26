@@ -77,20 +77,42 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:layout_height="wrap_content">
 
+                <TextView
+                    android:id="@+id/deleteNote"
+                    style="@style/RoundedLightYellowButton"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/rounded_ten_dp"
+                    android:onClick="@{() -> calculatorViewModel.deleteLastNote()}"
+                    android:text="@string/delete_note"
+                    android:textSize="14sp" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"/>
                 <TextView
                     android:id="@+id/addNewNote"
                     style="@style/RoundedLightYellowButton"
-                    android:layout_width="wrap_content"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="32dp"
                     android:background="@drawable/rounded_ten_dp"
                     android:onClick="@{() -> calculatorViewModel.addNewNote()}"
                     android:text="@string/add_note"
                     android:textSize="14sp" />
+                </LinearLayout>
+
             </LinearLayout>
         </ScrollView>
 

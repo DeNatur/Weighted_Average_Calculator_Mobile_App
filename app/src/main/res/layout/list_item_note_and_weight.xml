@@ -44,7 +44,7 @@
             android:gravity="center"
             android:textColor="@color/white"
             android:fontFamily="@font/ubuntu_regular"
-            android:text="@{@string/note_nr(position)}"
+            android:text="@{@string/note_nr(position +1)}"
             android:layout_height="wrap_content" />
         <View
             android:layout_width="0dp"

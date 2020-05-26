@@ -14,13 +14,22 @@ import kotlinx.coroutines.*
 class MenuViewModel(val database: WeightedAverageDao
         ) : ViewModel() {
 
-
     /**
      * viewModelJob allows us to cancel all coroutines started by this ViewModel.
      */
     private var viewModelJob = Job()
 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
+    /**
+     * Called when the ViewModel is dismantled.
+     * At this point, we want to cancel all coroutines;
+     * otherwise we end up with processes that have nowhere to return to
+     * using memory and resources.
+     */
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
+    }
 
     /**
      * Variable that tells the Fragment to navigate to a specific [CalculatorFragment]

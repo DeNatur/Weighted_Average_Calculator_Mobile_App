@@ -23,6 +23,16 @@ class CalculatorViewModel(private val weightedAverageKey: Long = 0L,
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     /**
+     * Called when the ViewModel is dismantled.
+     * At this point, we want to cancel all coroutines;
+     * otherwise we end up with processes that have nowhere to return to
+     * using memory and resources.
+     */
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
+    }
+    /**
      * Variable that tells the Fragment to navigate to a specific [ResultFragment]
      *
      * This is private because we don't want to expose setting this value to the Fragment.
@@ -60,6 +70,18 @@ class CalculatorViewModel(private val weightedAverageKey: Long = 0L,
         list.add(NoteNWeight())
         note?.notes = list
         _weightedAverage.value = note
+    }
+
+
+    fun deleteLastNote(){
+        val note = _weightedAverage.value
+        val list = mutableListOf<NoteNWeight>()
+        note?.notes?.let { list.addAll(it) }
+        if(list.size > 0){
+            list.removeAt(list.size -1)
+            note?.notes = list
+            _weightedAverage.value = note
+        }
     }
 
     /**

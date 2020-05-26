@@ -8,4 +8,16 @@
     <string name="choose_weight">Wybierz\nWagę</string>
     <string name="note_nr">Ocena nr %d</string>
     <string name="add_note">Dodaj Ocenę</string>
+    <string name="delete_note">Usuń Ocenę</string>
+
+
+    <string name="weighted_average">Średnia ważona: %.2f</string>
+    <string name="results">Wyniki</string>
+    <string name="notes">Oceny</string>
+    <string name="weights">Wagi</string>
+    <string name="name_result">Nazwij wynik</string>
+    <string name="calculate_once_again">Policz następną średnią</string>
+    <string name="back">Cofnij</string>
+    <string name="change_notes">Zmień Oceny</string>
+
 </resources>

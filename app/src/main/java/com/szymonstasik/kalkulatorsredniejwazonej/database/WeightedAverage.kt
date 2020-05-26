@@ -23,6 +23,6 @@ data class WeightedAverage(
 
 data class NoteNWeight(
     var id: UUID = UUID.randomUUID(),
-    var note: Int = 0,
-    var weight: Int = 1
+    var note: Int = 1,
+    var weight: Int = 0
 )

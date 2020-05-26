@@ -8,4 +8,15 @@
     <string name="choose_weight">Choose\nWeight</string>
     <string name="note_nr">Note nr %d</string>
     <string name="add_note">Add Note</string>
+    <string name="delete_note">Delete Note</string>
+
+    <string name="weighted_average">Weighted average: %.2f</string>
+    <string name="results">Results</string>
+    <string name="notes">Notes</string>
+    <string name="weights">Weights</string>
+    <string name="name_result">Name result</string>
+    <string name="calculate_once_again">Calculate next</string>
+    <string name="back">Back</string>
+    <string name="change_notes">Change Notes</string>
+
 </resources>
