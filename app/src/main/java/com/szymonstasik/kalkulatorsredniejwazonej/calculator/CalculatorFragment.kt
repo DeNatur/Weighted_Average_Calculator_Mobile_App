@@ -46,6 +46,8 @@ class CalculatorFragment : Fragment() {
 
         binding.notesAndWeightesRecycler.adapter = adapter
 
+
+
         calculatorViewModel.weightedAverage.observe(viewLifecycleOwner, Observer {
             if (it != null)
                 adapter.submitList(it.notes)
@@ -59,6 +61,16 @@ class CalculatorFragment : Fragment() {
                 calculatorViewModel.doneNavigatingToResult()
             }
         })
+
+        binding.addNewNote.setOnClickListener {
+            calculatorViewModel.addNewNote()
+            binding.notesAndWeightesRecycler.smoothScrollToPosition(adapter.itemCount )
+        }
+
+        binding.deleteNote.setOnClickListener {
+            calculatorViewModel.deleteLastNote()
+            binding.notesAndWeightesRecycler.smoothScrollToPosition(adapter.itemCount )
+        }
 
         return binding.root
     }

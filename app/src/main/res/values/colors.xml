@@ -10,4 +10,5 @@
     <color name="green_dark">#3c7b00</color>
     <color name="green_light">#a0dd5b</color>
     <color name="light_yellow">#ded46a</color>
+    <color name="green_alternative">#00693c</color>
 </resources>

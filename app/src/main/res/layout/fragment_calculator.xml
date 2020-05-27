@@ -11,7 +11,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="@color/green_primary"
+        android:background="@color/green_alternative"
         android:layout_height="match_parent"
         tools:context=".calculator.CalculatorFragment">
 
@@ -92,7 +92,6 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/rounded_ten_dp"
-                    android:onClick="@{() -> calculatorViewModel.deleteLastNote()}"
                     android:text="@string/delete_note"
                     android:textSize="14sp" />
                 <View
@@ -108,7 +107,6 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="32dp"
                     android:background="@drawable/rounded_ten_dp"
-                    android:onClick="@{() -> calculatorViewModel.addNewNote()}"
                     android:text="@string/add_note"
                     android:textSize="14sp" />
                 </LinearLayout>
