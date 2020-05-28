@@ -4,6 +4,7 @@ import androidx.lifecycle.Observer
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import com.szymonstasik.kalkulatorsredniejwazonej.database.NoteNWeight
 import com.szymonstasik.kalkulatorsredniejwazonej.database.WeightedAverage
 import com.szymonstasik.kalkulatorsredniejwazonej.database.WeightedAverageDao
 import com.szymonstasik.kalkulatorsredniejwazonej.database.WeightedAverageDatabase
@@ -43,10 +44,13 @@ class WeightedAverageDatabaseTest {
     @Test
     @Throws(Exception::class)
     fun insertAndGetWeightedAverage() {
-        val weightedAverage = WeightedAverage()
-        weightedAverage.name = "test"
-        weightedAverageDao.insert(weightedAverage)
-        var weightedAverageFromDb = weightedAverageDao.getWeightedAverageWithId(weightedAverage.id)
-        Assert.assertEquals(weightedAverageFromDb.name, "test")
+        var tmpArray = ArrayList<NoteNWeight>()
+        tmpArray.add(NoteNWeight())
+        val newWeightedAverage = WeightedAverage(
+            notes = tmpArray
+        )
+        weightedAverageDao.insert(newWeightedAverage)
+        var weightedAverageFromDb = weightedAverageDao.getWeightedAverageWithId(newWeightedAverage.id)
+        Assert.assertEquals(weightedAverageFromDb.value?.get(0)?.name, "test")
     }
 }

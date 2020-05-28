@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.activity.OnBackPressedCallback
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -15,6 +16,7 @@ import com.szymonstasik.kalkulatorsredniejwazonej.calculator.CalculatorFragmentA
 import com.szymonstasik.kalkulatorsredniejwazonej.database.WeightedAverageDatabase
 import com.szymonstasik.kalkulatorsredniejwazonej.databinding.FragmentCalculatorBinding
 import com.szymonstasik.kalkulatorsredniejwazonej.databinding.FragmentResultBinding
+import com.szymonstasik.kalkulatorsredniejwazonej.utils.Utils
 
 
 class ResultFragment : Fragment() {
@@ -37,18 +39,25 @@ class ResultFragment : Fragment() {
 
         val adapter = ResultNotesAdapter()
 
+        setupUI(binding.parent)
+
         binding.notesAndWeightsRecycler.adapter = adapter
 
         binding.resultViewModel = resultViewModel
 
         binding.lifecycleOwner = this
 
+        binding.buttonName.setOnClickListener {
+            resultViewModel.onNameNoteNWeightsClick(binding.editTextName.text.toString().trim())
+        }
+
         resultViewModel.result.observe(viewLifecycleOwner, Observer {
-            binding.resultText.text = getString(R.string.weighted_average, it)
+            binding.resultText.text = getString(R.string.weighted_average_name_and_value, it)
         })
 
         resultViewModel.weightedAverage.observe(viewLifecycleOwner, Observer {
             if (it != null){
+                binding.editTextName.setText(it.name)
                 adapter.submitList(it.notes)
             }
         })
@@ -68,6 +77,25 @@ class ResultFragment : Fragment() {
         })
 
         return binding.root
+    }
+
+    private fun setupUI(view: View) {
+        if (view !is EditText) {
+            view.setOnTouchListener { v, event ->
+                try {
+                    activity?.let { Utils.hideSoftKeyboard(it) }
+                    false
+                } catch (e: NullPointerException) {
+                    false
+                }
+            }
+        }
+        if (view is ViewGroup) {
+            for (i in 0 until (view as ViewGroup).childCount) {
+                val innerView: View = (view as ViewGroup).getChildAt(i)
+                setupUI(innerView)
+            }
+        }
     }
 
 

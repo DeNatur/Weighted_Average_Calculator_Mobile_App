@@ -9,7 +9,10 @@
     <string name="note_nr">Note nr %d</string>
     <string name="add_note">Add Note</string>
     <string name="delete_note">Delete Note</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
 
+    <string name="weighted_average_name_and_value">Weighted average: %.2f</string>
     <string name="weighted_average">Weighted average: </string>
     <string name="results">Results</string>
     <string name="notes">Notes</string>
@@ -22,5 +25,7 @@
     <string name="no_name">unnamed</string>
     <string name="weighted_average_value">%.2f</string>
     <string name="date">Date: </string>
+
+    <string name="what_do_you_want_to_do">What do you want to do?</string>
 
 </resources>

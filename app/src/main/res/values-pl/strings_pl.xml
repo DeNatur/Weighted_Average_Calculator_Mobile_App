@@ -9,8 +9,11 @@
     <string name="note_nr">Ocena nr %d</string>
     <string name="add_note">Dodaj Ocenę</string>
     <string name="delete_note">Usuń Ocenę</string>
+    <string name="delete">Usunąć</string>
+    <string name="edit">Edytować</string>
 
 
+    <string name="weighted_average_name_and_value">Średnia ważona: %.2f</string>
     <string name="weighted_average">Średnia ważona:</string>
     <string name="results">Wyniki</string>
     <string name="notes">Oceny</string>
@@ -23,5 +26,7 @@
     <string name="no_name">nie nazwano</string>
     <string name="weighted_average_value">%.2f</string>
     <string name="date">Data: </string>
+
+    <string name="what_do_you_want_to_do">Co chcesz zrobić?</string>
 
 </resources>

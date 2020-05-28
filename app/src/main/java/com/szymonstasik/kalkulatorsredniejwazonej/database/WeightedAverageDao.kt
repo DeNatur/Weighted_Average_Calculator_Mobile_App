@@ -1,10 +1,7 @@
 package com.szymonstasik.kalkulatorsredniejwazonej.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 
 
 /**
@@ -29,6 +26,14 @@ interface WeightedAverageDao {
      */
     @Update
     fun update(weightedAverage: WeightedAverage)
+
+    /**
+     * Deletes selected value from database
+     *
+     * @param weightedAverage value to delete
+     */
+    @Delete
+    fun delete(weightedAverage: WeightedAverage)
 
     /**
      * Selects and returns the row that matches the supplied start time, which is our key.

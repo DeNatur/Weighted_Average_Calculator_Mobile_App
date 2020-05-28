@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="historyViewModel"
+            type="com.szymonstasik.kalkulatorsredniejwazonej.history.HistoryViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,6 +39,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/strokeTextView" />
         <TextView
+            android:onClick="@{() -> historyViewModel.onCalculatorClick()}"
             android:id="@+id/calculateButton"
             style="@style/RoundedLightYellowButton"
             android:layout_width="match_parent"

@@ -1,20 +1,22 @@
 package com.szymonstasik.kalkulatorsredniejwazonej.history
 
-import android.app.Application
+import android.app.Dialog
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.Window
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.szymonstasik.kalkulatorsredniejwazonej.calcuatorresult.ResultNotesAdapter
-import com.szymonstasik.kalkulatorsredniejwazonej.database.NoteNWeight
+import com.szymonstasik.kalkulatorsredniejwazonej.R
 import com.szymonstasik.kalkulatorsredniejwazonej.database.WeightedAverage
-import com.szymonstasik.kalkulatorsredniejwazonej.databinding.ListItemNoteAndWeightResultBinding
+import com.szymonstasik.kalkulatorsredniejwazonej.databinding.DialogWeightAverageChooserBinding
 import com.szymonstasik.kalkulatorsredniejwazonej.databinding.ListItemWeightedAverageBinding
 
-class HistoryWeightedAverageAdapter
+class HistoryWeightedAverageAdapter(private val historyViewModel: HistoryViewModel)
     : ListAdapter<WeightedAverage, HistoryWeightedAverageAdapter.ViewHolder>
-    (HistoryWeightedAverageAdapter.WeightedAverageDiffCallback()){
+    (WeightedAverageDiffCallback()){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
@@ -22,14 +24,18 @@ class HistoryWeightedAverageAdapter
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position) as WeightedAverage
-        holder.bind(item)
+        holder.bind(item, historyViewModel)
     }
 
     class ViewHolder private constructor(private val binding: ListItemWeightedAverageBinding)
         : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: WeightedAverage) {
+        fun bind(item: WeightedAverage, historyViewModel: HistoryViewModel) {
             binding.weightedAverage = item
+            binding.root.context
+            binding.parent.setOnClickListener {
+                showDialog(binding.root.context, item, historyViewModel)
+            }
             binding.executePendingBindings()
         }
 
@@ -40,6 +46,28 @@ class HistoryWeightedAverageAdapter
 
                 return ViewHolder(binding)
             }
+        }
+
+        private fun showDialog(context: Context, item: WeightedAverage, historyViewModel: HistoryViewModel){
+            val dialog = Dialog(context)
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            val layoutInflater = LayoutInflater.from(context)
+            val binding: DialogWeightAverageChooserBinding =
+                DataBindingUtil.inflate(layoutInflater, R.layout.dialog_weight_average_chooser, null, false)
+
+            binding.historyViewModel = historyViewModel
+
+            binding.deleteNote.setOnClickListener {
+                historyViewModel.onDeleteClick(item)
+                dialog.dismiss()
+            }
+
+            binding.editNote.setOnClickListener {
+                historyViewModel.onEditClick(item.id)
+                dialog.dismiss()
+            }
+            dialog.setContentView(binding.root)
+            dialog.show()
         }
     }
 
@@ -55,7 +83,7 @@ class HistoryWeightedAverageAdapter
         }
 
         override fun areContentsTheSame(oldItem: WeightedAverage, newItem: WeightedAverage): Boolean {
-            var same: Boolean = true
+            var same = true
             for (position in oldItem.notes.indices){
                if (oldItem.notes[position] != newItem.notes[position])
                    same = false

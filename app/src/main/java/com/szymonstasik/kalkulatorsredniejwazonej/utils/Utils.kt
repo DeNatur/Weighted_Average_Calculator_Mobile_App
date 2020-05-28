@@ -1,5 +1,9 @@
 package com.szymonstasik.kalkulatorsredniejwazonej.utils
 
+import android.app.Activity
+import android.view.inputmethod.InputMethodManager
+
+
 object Utils{
     fun getNoteFromId(position: Int): Float =
         when(position){
@@ -17,4 +21,12 @@ object Utils{
             11 -> 6f
             else -> 0f
         }
+    fun hideSoftKeyboard(activity: Activity) {
+        val inputMethodManager: InputMethodManager = activity.getSystemService(
+            Activity.INPUT_METHOD_SERVICE
+        ) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(
+            activity.currentFocus!!.windowToken, 0
+        )
+    }
 }

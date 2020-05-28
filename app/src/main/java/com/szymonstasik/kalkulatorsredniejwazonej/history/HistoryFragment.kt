@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.szymonstasik.kalkulatorsredniejwazonej.R
 import com.szymonstasik.kalkulatorsredniejwazonej.calculator.CalculatorFragmentArgs
 import com.szymonstasik.kalkulatorsredniejwazonej.calculator.CalculatorViewModel
@@ -34,13 +35,22 @@ class HistoryFragment : Fragment() {
 
         val historyViewModel = ViewModelProvider(this, viewModelFactory)[HistoryViewModel::class.java]
 
-        val adapter = HistoryWeightedAverageAdapter()
+        val adapter = HistoryWeightedAverageAdapter(historyViewModel)
 
         binding.weightedAverageRecycler.adapter = adapter
+
+        binding.historyViewModel = historyViewModel
 
         historyViewModel.listOfWeightedAverage.observe(viewLifecycleOwner, Observer {
             if (it != null){
                 adapter.submitList(it)
+            }
+        })
+
+        historyViewModel.navigateToCalculator.observe(viewLifecycleOwner, Observer {
+            if (it != null){
+                findNavController().navigate(HistoryFragmentDirections.actionHistoryFragmentToCalculatorFragment(it))
+                historyViewModel.doneNavigationToCalculator()
             }
         })
 
