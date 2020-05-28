@@ -47,6 +47,13 @@ class ResultViewModel(private val weightedAverageKey: Long = 0L,
             return  _navigateToCalculator
         }
 
+    private val _navigateToHistory = MutableLiveData<Boolean>()
+
+    val navigateToHistory: LiveData<Boolean>
+        get() {
+            return _navigateToHistory
+        }
+
     fun onChangeClick(){
         _navigateToCalculator.value = weightedAverageKey
     }
@@ -59,6 +66,18 @@ class ResultViewModel(private val weightedAverageKey: Long = 0L,
             )
             _navigateToCalculator.value =  insert(newWeightedAverage)
         }
+    }
+
+    fun onNameNoteNWeightsClick(name: String){
+        uiScope.launch {
+            _weightedAverage.value?.name = name
+            _weightedAverage.value?.let { update(it) }
+            _navigateToHistory.value = true
+        }
+    }
+
+    fun onDoneNavigatingToHistory(){
+        _navigateToHistory.value = false
     }
 
     fun onDoneNavigatingToCalculator(){

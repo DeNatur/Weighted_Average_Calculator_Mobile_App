@@ -100,19 +100,6 @@
                     android:textColor="@color/white"
                     android:textSize="24sp" />
 
-                <TextView
-                    android:id="@+id/changeNotes"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    style="@style/RoundedLightYellowButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/rounded_ten_dp"
-                    android:onClick="@{() -> resultViewModel.onChangeClick()}"
-                    android:text="@string/change_notes"
-                    android:textSize="14sp" />
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_marginTop="16dp"
@@ -137,19 +124,39 @@
                         android:text="@string/name_result"
                         android:textSize="14sp" />
                 </LinearLayout>
-                <TextView
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:id="@+id/calculateAgain"
-                    style="@style/RoundedLightYellowButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_marginTop="32dp"
-                    android:background="@drawable/rounded_ten_dp"
-                    android:onClick="@{() -> resultViewModel.onCalculateAgainCLick()}"
-                    android:text="@string/calculate_once_again"
-                    android:textSize="14sp" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/changeNotes"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        style="@style/RoundedLightYellowButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:background="@drawable/rounded_ten_dp"
+                        android:onClick="@{() -> resultViewModel.onChangeClick()}"
+                        android:text="@string/back"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:id="@+id/calculateAgain"
+                        style="@style/RoundedLightYellowButton"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/rounded_ten_dp"
+                        android:onClick="@{() -> resultViewModel.onCalculateAgainCLick()}"
+                        android:text="@string/calculate_once_again"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
 

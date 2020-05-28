@@ -60,6 +60,13 @@ class ResultFragment : Fragment() {
             }
         })
 
+        resultViewModel.navigateToHistory.observe(viewLifecycleOwner, Observer {
+            if (it){
+                findNavController().navigate(ResultFragmentDirections.actionResultFragmentToHistoryFragment())
+                resultViewModel.onDoneNavigatingToHistory()
+            }
+        })
+
         return binding.root
     }
 

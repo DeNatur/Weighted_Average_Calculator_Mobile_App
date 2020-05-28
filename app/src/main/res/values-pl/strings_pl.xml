@@ -11,7 +11,7 @@
     <string name="delete_note">Usuń Ocenę</string>
 
 
-    <string name="weighted_average">Średnia ważona: %.2f</string>
+    <string name="weighted_average">Średnia ważona:</string>
     <string name="results">Wyniki</string>
     <string name="notes">Oceny</string>
     <string name="weights">Wagi</string>
@@ -19,5 +19,9 @@
     <string name="calculate_once_again">Policz następną średnią</string>
     <string name="back">Cofnij</string>
     <string name="change_notes">Zmień Oceny</string>
+    <string name="weighted_average_name">Nazwa:</string>
+    <string name="no_name">nie nazwano</string>
+    <string name="weighted_average_value">%.2f</string>
+    <string name="date">Data: </string>
 
 </resources>

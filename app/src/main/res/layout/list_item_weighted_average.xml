@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="weightedAverage"
+            type="com.szymonstasik.kalkulatorsredniejwazonej.database.WeightedAverage"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/rounded_ten_dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="4dp">
+
+        <TextView
+            android:id="@+id/weightAverageName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/grey"
+            android:fontFamily="@font/ubuntu_bold"
+            android:gravity="center"
+            android:text="@string/weighted_average_name"
+            android:textSize="16sp"
+            app:fontFamily="@font/ubuntu_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/weightAverageValueName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/ubuntu_bold"
+            android:gravity="center"
+            android:text="@string/weighted_average"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/grey"
+            android:textSize="16sp"
+            app:fontFamily="@font/ubuntu_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weightAverageName" />
+
+        <TextView
+            android:id="@+id/weightAverageNameValue"
+            weightedAverageName="@{weightedAverage}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/ubuntu_bold"
+            android:gravity="center"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/grey"
+            android:textSize="16sp"
+            app:fontFamily="@font/ubuntu_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/weightAverageValue"
+            weightedAverage="@{weightedAverage}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/ubuntu_bold"
+            android:gravity="center"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/grey"
+            android:textSize="16sp"
+            app:fontFamily="@font/ubuntu_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weightAverageNameValue" />
+
+        <TextView
+            android:id="@+id/weightAverageDateValue"
+            weightedAverageDate="@{weightedAverage}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/ubuntu_bold"
+            android:gravity="center"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/grey"
+            android:textSize="16sp"
+            app:fontFamily="@font/ubuntu_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weightAverageValue" />
+
+        <TextView
+            android:id="@+id/weightAverageDateName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/ubuntu_bold"
+            android:gravity="center"
+            android:text="@string/date"
+            android:textColor="@color/grey"
+            android:textSize="16sp"
+            app:fontFamily="@font/ubuntu_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weightAverageValueName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
