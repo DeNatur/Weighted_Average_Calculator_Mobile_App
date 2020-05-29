@@ -1,4 +1,4 @@
-# Weighted Average Calculator/Klkulator Średniej Ważonej
+# Weighted Average Calculator/Kalkulator Średniej Ważonej
 
 Android mobile app for calculating weighted average 
 
