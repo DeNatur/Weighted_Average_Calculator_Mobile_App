@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.kobakei.ratethisapp.RateThisApp
 import com.szymonstasik.kalkulatorsredniejwazonej.R
 import com.szymonstasik.kalkulatorsredniejwazonej.calculator.CalculatorFragmentArgs
 import com.szymonstasik.kalkulatorsredniejwazonej.database.WeightedAverageDatabase
@@ -75,6 +76,7 @@ class ResultFragment : Fragment() {
                 resultViewModel.onDoneNavigatingToHistory()
             }
         })
+        RateThisApp.showRateDialogIfNeeded(context);
 
         return binding.root
     }

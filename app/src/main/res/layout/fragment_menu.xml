@@ -54,7 +54,7 @@
             android:layout_marginEnd="16dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
-            android:text="@string/history"
+            android:text="@string/results"
             android:background="@drawable/rounded_ten_dp"
             style="@style/RoundedLightYellowButton"
             app:layout_constraintEnd_toEndOf="parent"

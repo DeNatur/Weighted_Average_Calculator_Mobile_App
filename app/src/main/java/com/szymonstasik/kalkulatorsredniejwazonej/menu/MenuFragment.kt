@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.kobakei.ratethisapp.RateThisApp
 import com.szymonstasik.kalkulatorsredniejwazonej.R
 import com.szymonstasik.kalkulatorsredniejwazonej.database.WeightedAverageDatabase
 import com.szymonstasik.kalkulatorsredniejwazonej.databinding.FragmentMenuBinding
@@ -41,6 +42,10 @@ class MenuFragment : Fragment() {
         })
 
         binding.historyButton.setOnClickListener { onHistory() }
+
+        val config = RateThisApp.Config(1, 2)
+        RateThisApp.init(config)
+        RateThisApp.onCreate(context);
 
         return binding.root
     }

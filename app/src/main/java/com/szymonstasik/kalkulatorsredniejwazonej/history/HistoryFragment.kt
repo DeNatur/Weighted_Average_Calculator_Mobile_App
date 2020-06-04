@@ -44,7 +44,11 @@ class HistoryFragment : Fragment() {
         historyViewModel.listOfWeightedAverage.observe(viewLifecycleOwner, Observer {
             if (it != null){
                 adapter.submitList(it)
-            }
+                if (it.isEmpty())
+                    binding.noResultsText.visibility = View.VISIBLE
+                else
+                    binding.noResultsText.visibility = View.GONE
+            }else binding.noResultsText.visibility = View.VISIBLE
         })
 
         historyViewModel.navigateToCalculator.observe(viewLifecycleOwner, Observer {

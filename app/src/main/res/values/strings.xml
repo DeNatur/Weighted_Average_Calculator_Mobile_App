@@ -28,4 +28,12 @@
 
     <string name="what_do_you_want_to_do">What do you want to do?</string>
 
+    <string name="rate_app">Rate this up</string>
+    <string name="rate_app_message">If you enjoy using this app, would you mind taking a moment to rate it? It won\'t take more than a minute. Thank you for your support!</string>
+    <string name="sure">Sure!</string>
+    <string name="later">Later</string>
+    <string name="no_thanks">Not now</string>
+
+    <string name="no_results">You don\t have any results yet</string>
+
 </resources>
