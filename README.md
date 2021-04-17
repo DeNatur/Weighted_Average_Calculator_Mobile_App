@@ -1,3 +1,7 @@
+# DEPRACATED
+
+New version of project here: https://github.com/DeNatur/Weighted-Average-Calculator
+
 # Weighted Average Calculator/Kalkulator Średniej Ważonej
 
 Android mobile app for calculating weighted average 
